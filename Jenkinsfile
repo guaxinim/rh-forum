@@ -27,7 +27,7 @@ podTemplate(
 
     stage('Analise de codigo') {
      echo "Code Analysis"
-     //sh "${mvnCmd} sonar:sonar -Dsonar.host.url=http://sonarqube.continuous-integration.svc.cluster.local:9000/ -Dsonar.projectName=rhforum"
+     sh "${mvnCmd} sonar:sonar -Dsonar.host.url=http://sonarqube.continuous-integration.svc.cluster.local:9000/ -Dsonar.projectName=rhforum"
     }
 
     stage('Build WAR') {
@@ -75,7 +75,7 @@ podTemplate(
             waitUntil {
 
                 def r = sh (
-                    script: 'curl -I -s http://rhforum-rhforum-app-dev.apps.ocp.rhbrlab.com/rhforum/rest/clientes | head -n 1 |cut -d$\' \' -f2',
+                    script: 'curl -I -s http://rhforum-rhforum.apps.cluster-rio-213b.rio-213b.example.opentlc.com/rhforum/rest/clientes | head -n 1 |cut -d$\' \' -f2',
                     returnStdout: true
                 ).trim()
                 return r.toInteger().equals(200);
