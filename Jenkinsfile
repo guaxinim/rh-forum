@@ -27,7 +27,7 @@ podTemplate(
 
     stage('Analise de codigo') {
      echo "Code Analysis"
-     sh "${mvnCmd} sonar:sonar -Dsonar.host.url=http://sonarqube.continuous-integration.svc.cluster.local:9000/ -Dsonar.projectName=rhforum"
+     //sh "${mvnCmd} sonar:sonar -Dsonar.host.url=http://sonarqube.continuous-integration.svc.cluster.local:9000/ -Dsonar.projectName=rhforum"
     }
 
     stage('Build WAR') {
