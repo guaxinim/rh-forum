@@ -9,7 +9,7 @@ spec:
   source:
     git:
       ref: master
-      uri: http://gogs.apps.ocp.rhbrlab.com/gustavo/rhforum.git
+      uri: https://github.com/guaxinim/rh-forum.git
     type: Git
   strategy:
     jenkinsPipelineStrategy:
